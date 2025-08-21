@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add pagination controls
         const paginationDiv = document.createElement('div');
         paginationDiv.innerHTML =  ```
-        <div style="text-align: center; margin: 20px 0;" class="pagination">
+        <div class="pagination">
             <a id="prevPage">Previous</a>
             <span id="pageInfo"></span>
             <a id="nextPage">Next</button></a>;
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Pagination logic
         const posts = document.querySelectorAll('.blog-posts li');
-        const postsPerPage = 10;
+        const postsPerPage = document.currentScript.dataset.pageSize || 10;
         const totalPages = Math.ceil(posts.length / postsPerPage);
         let currentPage = 1;
 

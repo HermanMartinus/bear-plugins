@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   if (!isLoggedIn) {
-    const script = document.currentScript || document.querySelector('script[src*="password-protect.js"]');
-    const correctPassword = script.dataset.password;
-    
+    const correctPassword = document.currentScript.dataset.password;
+
     let userInput;
     let isPasswordCorrect = false;
 
