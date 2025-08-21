@@ -1,7 +1,7 @@
 if (document.body.classList.contains('blog')) {
     // Add pagination controls
     const paginationDiv = document.createElement('div');
-    paginationDiv.innerHTML =  <div style="text-align: center; margin: 20px 0;">    <button id="prevPage">Previous</button>    <span id="pageInfo"></span>    <button id="nextPage">Next</button>  </div>;
+    paginationDiv.innerHTML =  `<div style="text-align: center; margin: 20px 0;">    <button id="prevPage">Previous</button>    <span id="pageInfo"></span>    <button id="nextPage">Next</button>  </div>;`
     document.querySelector('.blog-posts').after(paginationDiv);
 
     // Pagination logic
