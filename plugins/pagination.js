@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if (document.body.classList.contains('blog')) {
         // Add pagination controls
         const paginationDiv = document.createElement('div');
-        paginationDiv.innerHTML =  `<div style="text-align: center; margin: 20px 0;"><a id="prevPage">Previous</a><span id="pageInfo"></span><a id="nextPage">Next</button></a>;`
+        paginationDiv.innerHTML =  ```
+        <div style="text-align: center; margin: 20px 0;" class="pagination">
+            <a id="prevPage">Previous</a>
+            <span id="pageInfo"></span>
+            <a id="nextPage">Next</button></a>;
+        </div>`
         document.querySelector('.blog-posts').after(paginationDiv);
 
         // Pagination logic
