@@ -18,7 +18,7 @@ if (document.body.classList.contains('blog')) {
     post.style.display = (index >= start && index < end) ? '' : 'none';
     });
 
-    document.getElementById('pageInfo').textContent = Page ${page} of ${totalPages};
+    document.getElementById('pageInfo').textContent = `Page ${page} of ${totalPages}`;
     document.getElementById('prevPage').disabled = page === 1;
     document.getElementById('nextPage').disabled = page === totalPages;
     }
