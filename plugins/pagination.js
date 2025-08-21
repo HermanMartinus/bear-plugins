@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <a id="prevPage">Previous</a>
             <span id="pageInfo"></span>
             <a id="nextPage">Next</button></a>;
-        </div>`
+        </div>
+        ```
         document.querySelector('.blog-posts').after(paginationDiv);
 
         // Pagination logic
