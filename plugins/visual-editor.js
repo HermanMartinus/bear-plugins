@@ -1,12 +1,10 @@
 // Ensure you add the import for the Overtype library above this one
 // <script src="https://unpkg.com/overtype"></script>
 
-if ($textarea) {
-    $textarea.style.display = "none";
-    $uploadButton.style.display = "none"; // This is incompatible with the editor
-
-    // Initialize demo editors
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    if ($textarea) {
+        $textarea.style.display = "none";
+        $uploadButton.style.display = "none"; // This is incompatible with the editor
 
         if ($textarea) {
             $overtypeDiv = document.createElement('div');
@@ -34,8 +32,8 @@ if ($textarea) {
         $overtypeTextarea.addEventListener("scroll", function(e){
             sessionStorage.setItem('overtypeEditorY', $overtypeTextarea.scrollTop)
         })
-    });
-}
+    }
+});
 
 
 
