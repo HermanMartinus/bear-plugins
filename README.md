@@ -1,2 +1,80 @@
-# bear-plugins
-Plugins for Bear Blog
+# Bear Blog plugins
+
+The following scripts are extentions for the Bear Blog platform. These are non-official and while maintained may need a bit of tweaking here or there. Please consider contributing!
+
+They are separated into **Blog** and **Dashboard** tools to distinguish if they are used on the rendering of the blog, or if they are an extension to the Bear editor and dashboard. 
+
+These extensions can be used either by including the provided script links, or by copying and pasting the JS itself into a `<script></script>` tag into the head or footer directive of your blog. The latter option gives you more control over the scrip and can be modified as you see fit. 
+
+## Blog
+
+### Pagination on blog
+
+Have the blog page or post embed paginated instead of displaying all posts at once. 
+
+[Code](/plugins/pagination.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/pagination.js"></script>
+```
+
+### Reading time on post
+
+Display the estimated reading time for a post.
+
+[Code](/plugins/reading-time.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/reading-time.js"></script>
+```
+
+### Search posts
+
+Search post titles on the blog page with a search input. 
+
+[Code](/plugins/search-posts.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/search-posts.js"></script>
+```
+
+### Password protect blog
+
+Add a password to a blog in order to view the content. 
+
+*Note: This is easily circumvented by anyone with a decent understanding of JavaScript and so should only be used to protect non-sensitive information. 
+
+[Code](/plugins/password-protect.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/password-protect.js"></script>
+```
+
+
+## Dashboard
+
+## Full height editor
+
+Have the post and homepage content editor expand to fill the page. 
+
+[Code](/plugins/full-height-editor.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/full-height-editor.js"></script>
+```
+
+## Syntax highlighting and formatting controls in editor (WIP)
+
+Use [Overtype](https://overtype.dev) as the editor for syntax highlighting and other formatting control shortcuts.
+
+[Code](/plugins/overtype.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/overtype.js"></script>
+```
