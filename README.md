@@ -1,6 +1,6 @@
 # Bear Blog plugins
 
-The following scripts are extentions for the Bear Blog platform. These are non-official and while maintained may need a bit of tweaking here or there. Please consider contributing!
+The following scripts are extentions for the Bear Blog platform. These are not official extensions to Bear and may need a bit of tweaking here and there. **Consider contributing!**
 
 They are separated into **Blog** and **Dashboard** tools to distinguish if they are used on the rendering of the blog, or if they are an extension to the Bear editor and dashboard. 
 
