@@ -2,18 +2,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (document.body.classList.contains('blog')) {
         // Add pagination controls
         const paginationDiv = document.createElement('div');
-        paginationDiv.innerHTML =  ```
-        <div class="pagination">
-            <a id="prevPage">Previous</a>
-            <span id="pageInfo"></span>
-            <a id="nextPage">Next</button></a>;
-        </div>
-        ```
+        paginationDiv.innerHTML = '<div class="pagination"><a id="prevPage">Previous</a><span id="pageInfo"></span><a id="nextPage">Next</button></a></div>';
+
         document.querySelector('.blog-posts').after(paginationDiv);
 
         // Pagination logic
+        const postsPerPage = 20;
         const posts = document.querySelectorAll('.blog-posts li');
-        const postsPerPage = document.currentScript.dataset.pageSize || 10;
         const totalPages = Math.ceil(posts.length / postsPerPage);
         let currentPage = 1;
 

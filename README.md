@@ -43,7 +43,7 @@ Embed:
 
 ### Password protect blog
 
-Add a password to a blog in order to view the content. 
+Add a password to a blog in order to view the content.
 
 *Note: This is easily circumvented by anyone with a decent understanding of JavaScript and so should only be used to protect non-sensitive information. 
 
@@ -51,8 +51,10 @@ Add a password to a blog in order to view the content.
 
 Embed:
 ```
-<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/password-protect.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/password-protect.js" data-password="MyPassword123"></script>
 ```
+
+Set the `data-password` attribute on the script element to the desired password. 
 
 
 ## Dashboard
@@ -76,5 +78,6 @@ Use [Overtype](https://overtype.dev) as the editor for syntax highlighting and o
 
 Embed:
 ```
+<script src="https://unpkg.com/overtype"></script>
 <script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/overtype.js"></script>
 ```
