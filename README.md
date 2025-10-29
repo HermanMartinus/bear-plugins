@@ -58,6 +58,7 @@ Set the `data-password` attribute on the script element to the desired password.
 
 
 ## Dashboard
+These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under 'Dashboard footer content'.  
 
 ## Full height editor
 
