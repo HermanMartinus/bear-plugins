@@ -1,7 +1,7 @@
 /**
 * This adds a button to your 'new post' page, which, when clicked, generates HTML for a Table of Contents. This HTMl is copied into your clipboard and then you can paste it into your post.
 *
-* Originally published at https://reedybear.bearblog.dev/generate-a-table-of-contents-on-bearblog/   This version contains editable variables at the start for easier modification.
+* Originally published at https://reedybear.bearblog.dev/generate-a-table-of-contents-on-bearblog/   This version contains editable variables at the start for easier modification. It also wraps the main code in a function for scoping purposes.
 */
 
 // wrap it in a function to prevent variables from conaminating other scripts.
