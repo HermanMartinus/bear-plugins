@@ -81,3 +81,13 @@ Embed:
 <script src="https://unpkg.com/overtype"></script>
 <script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/overtype.js"></script>
 ```
+
+## Generate Table of Contents for Blog Post
+Adds a button to your 'New Post' page. When clicked, HTML is generated for a Table of Contents. It is copied into your clipboard, and you must paste it into your post.
+
+[Code](/plugins/generate-table-of-contents.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/generate-table-of-contents.js"></script>
+```
