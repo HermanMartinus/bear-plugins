@@ -104,3 +104,15 @@ Embed:
 <script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/dashboard-post-counter.js"></script>
 ```
 
+## Fix New Lines in Posts
+Automatically ensures all lines have two spaces at the end, so Markdown will render new lines. Without two spaces at the end, text written on different lines (*without a blank line between them*) will render in your post as being on one line.
+
+**Note:** The `<script src=...>` below will apply fixes automatically when you click `Save as draft` or `Publish`. If you copy+paste the Code, you can set `const autofix = false;` to add a 'Fix new lines' button instead.
+
+[Code](/plugins/newline-fixer.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/newline-fixer.js"></script>
+```
+
