@@ -1,7 +1,7 @@
 /**
-* This adds two spaces to the ends of every line in your post. 
+* Ensures each line in your post has two spaces at the end. Markdown requires either a blank line between paragraphs or two spaces at the end of a line in order to render as separate paragraphs.
 *
-* In Markdown, new lines only render if there is a full blank line between paragraphs or two spaces at the end of each line. This plugin manages the two-spaces requirement for you.
+* change `const autofix = true;` to `const autofix = false;` to add a 'Fix new lines' button instead of fixing automatically on submission.
 * Created by ReedyBear, see https://reedybear.bearblog.dev/bearblog/ for other creations.
 */
 
@@ -15,9 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return; // stop execution of we're not on a new post page
   }
   if (autofix){
-    form.addEventListener('submit', fix_new_lines);
-  } 
-  if (true){
+    const submit_buttons = document.querySelectorAll('.sticky-controls > button[type="submit"]');
+    for (const button of submit_buttons){
+        button.setAttribute('onclick', 
+            button.getAttribute('onclick')
+            +";fix_new_lines(event);"
+            );
+    }
+  } else {
     // create a new button element
     const btn = document.createElement('button');
     btn.classList.add('markdown_line_fixer');
@@ -30,19 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function fix_new_lines(event){
-  console.log('fix new lines');
-  //console.log(event);
-  //console.log(event.type);
   const body_node = document.querySelector('#body_content');
   const body = body_node.value;
   const regex = /([^\n ])( {0,1})\n/g;
   const fixed_body = body.replaceAll(regex, "$1  \n");
   body_node.value = fixed_body;
-  if (event.type == 'submit'
-      && body != fixed_body){
-      console.log('prevent submission');
-      event.preventDefault();
-      const form = document.querySelector('form.post-form');
-      form.requestSubmit();
-  }
 }
