@@ -91,3 +91,15 @@ Embed:
 ```
 <script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/generate-table-of-contents.js"></script>
 ```
+
+## Post counter
+
+Count and display total posts and pages.
+
+[Code](/plugins/dashboard-post-counter.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/dashboard-post-counter.js"></script>
+```
+
