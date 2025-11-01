@@ -4,7 +4,7 @@ The following scripts are extentions for the Bear Blog platform. These are not o
 
 They are separated into **Blog** and **Dashboard** tools to distinguish if they are used on the rendering of the blog, or if they are an extension to the Bear editor and dashboard. 
 
-These extensions can be used either by including the provided script links, or by copying and pasting the JS itself into a `<script></script>` tag into the head or footer directive of your blog. The latter option gives you more control over the scrip and can be modified as you see fit. 
+These extensions can be used either by including the provided script links, or by copying and pasting the JS itself into a `<script></script>` tag into the head or footer directive of your blog. The latter option gives you more control over the script and can be modified as you see fit. 
 
 ## Blog
 
@@ -58,6 +58,7 @@ Set the `data-password` attribute on the script element to the desired password.
 
 
 ## Dashboard
+These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under 'Dashboard footer content'.  
 
 ## Full height editor
 
