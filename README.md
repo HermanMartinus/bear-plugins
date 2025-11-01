@@ -91,9 +91,9 @@ Adds a button to your 'New Post' page. When clicked, HTML is generated for a Tab
 Embed:
 ```
 <script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/generate-table-of-contents.js"
-data-header="Content:"
-data-button="Generate ToC"
-data-class="toc"
+    data-header="Content:"
+    data-button="Generate ToC"
+    data-class="toc"
 ></script>
 ```
 
