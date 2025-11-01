@@ -90,8 +90,14 @@ Adds a button to your 'New Post' page. When clicked, HTML is generated for a Tab
 
 Embed:
 ```
-<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/generate-table-of-contents.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/generate-table-of-contents.js"
+data-header="Content:"
+data-button="Generate ToC"
+data-class="toc"
+></script>
 ```
+
+**Configuration:** Modify the `data-` attributes. `data-header` is the text at the top of your table of contents. `data-button` is the text that displays on the button you click. `data-class` is used for styling the table of contents with CSS. Example: Change `data-header="Content:"` to `data-header="On This Page"`
 
 ## Post counter
 
