@@ -5,7 +5,8 @@
 */
 
 // wrap it in a function to prevent variables from conaminating other scripts.
-(function(){
+document.addEventListener('DOMContentLoaded', 
+function(){
   // the text that appears at the top of your table of contents
   const toc_header = "Contents:";
   // the css class added to the <div> that wraps your table of contents
@@ -13,6 +14,9 @@
   // the text that appears on the button you click
   const button_text = "Generate ToC";
 
+  // make sure we're on a new post page that has button controls
+  const controls = document.querySelector('.sticky-controls');
+  if (controls == null) return;
     
   // create a new button element
   const toc_btn = document.createElement('button');
@@ -20,8 +24,8 @@
   toc_btn.setAttribute('onclick', "event.preventDefault();generate_toc('"+toc_header+"','"+toc_class+"');");
   toc_btn.innerText = button_text;
   // add the button to your 'New Post' page
-  document.querySelector('.sticky-controls').appendChild(toc_btn);
-})();
+  controls.appendChild(toc_btn);
+});
 
 /** scan your post text and generate a ToC, copying it to your clipboard */
 function generate_toc(toc_header, toc_class){
