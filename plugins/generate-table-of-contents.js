@@ -8,11 +8,11 @@
 document.addEventListener('DOMContentLoaded', 
 function(){
   // the text that appears at the top of your table of contents
-  const toc_header = "Contents:";
+  const toc_header = document.currentScript.dataset.header || "Contents:";
   // the css class added to the <div> that wraps your table of contents
-  const toc_class = "toc";
+  const toc_class = document.currentScript.dataset.class || "toc";
   // the text that appears on the button you click
-  const button_text = "Generate ToC";
+  const button_text = document.currentScript.dataset.button || "Generate ToC";
 
   // make sure we're on a new post page that has button controls
   const controls = document.querySelector('.sticky-controls');
