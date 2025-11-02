@@ -129,7 +129,20 @@ function load_locally_installed_plugins(){
     const body = document.querySelector('body');
     for (let plugin_path in plugins){
 
+        const plugin_details = available_plugins['dashboard'][plugin_path];
+
+        const prepend_scripts = plugin_details.prepend_scripts || [];
+        //let has_prepend = false;
+        for (const script_url of prepend_scripts){
+            const pre_script = document.createElement('script');
+            pre_script.setAttribute('type', "text/javascript");
+            pre_script.setAttribute('src', script_url);
+            body.appendChild(pre_script);
+            //has_prepend = true;
+        }
+
         const script_node = document.createElement('script');
+        //if (has_prepend)script_node.setAttribute('defer', true);
         script_node.setAttribute('type', "text/javascript");
         if (!plugin_path.startsWith('/'))plugin_path = "/"+plugin_path;
         script_node.setAttribute('src', "https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins"+plugin_path);
@@ -138,15 +151,6 @@ function load_locally_installed_plugins(){
             script_node.setAttribute('data-'+setting, settings[setting]);
         }
 
-        const plugin_details = available_plugins['dashboard'][plugin_path];
-
-        const prepend_scripts = plugin_details.prepend_scripts || [];
-        for (const script_url of prepend_scripts){
-            const pre_script = document.createElement('script');
-            pre_script.setAttribute('type', "text/javascript");
-            pre_script.setAttribute('src', script_url);
-            body.appendChild(pre_script);
-        }
 
         body.appendChild(script_node);
     }
@@ -351,8 +355,9 @@ function get_plugin_manager_template(){
     `
         <h1>Dashhboard Plugin Manager</h1>
         <p>Plugins are installed from <a href="https://github.com/HermanMartinus/bear-plugins">Github</a>. They are NOT official extensions of Bear, and some may require tweaking or be unable to install automatically.</p>
-        <p>For plugins on the public side of your blog, see <a href="https://bearblog.dev/reedybear/dashboard/directives/">Header & Footer Directives</a>. (<i>requires premium</i>)</p>
-        <p><strong>Note:</strong> Dashboard plugins will only be installed on this machine, on this blog's dasbhoard, due to limitations with Bear. To install plugins globally on all your devices and blogs, <a href="https://github.com/HermanMartinus/bear-plugins">manually install plugins</a> on your <a href="https://bearblog.dev/dashboard/customise/">Customise dashboard page</a>.
+        <p><strong>Blog Plugins:</strong> Blog plugins must be manually installed (<i>for now</i>). Get them from <a href="https://github.com/HermanMartinus/bear-plugins">Github</a> and install them on <a href="https://bearblog.dev/reedybear/dashboard/directives/">Header & Footer Directives</a>. (<i>requires premium</i>)</p>
+        <p style="display:none"><strong>Blog Plugins:</strong> See <a href="https://bearblog.dev/reedybear/dashboard/directives/">Header & Footer Directives</a>. (<i>requires premium</i>)</p>
+        <p><strong>Warning:</strong> Dashboard plugins will only be installed on this machine, due to limitations with Bear. To install plugins globally on all your devices and blogs, <a href="https://github.com/HermanMartinus/bear-plugins">manually install plugins</a> on your <a href="https://bearblog.dev/dashboard/customise/">Customise dashboard page</a>.
         <div class="plugin-list">
         </div>
 
