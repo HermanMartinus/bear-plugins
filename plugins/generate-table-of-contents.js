@@ -6,7 +6,10 @@
 * Originally published at https://reedybear.bearblog.dev/generate-a-table-of-contents-on-bearblog/   This version is easier to customize and may contain other fixes.
 */
 
-document.addEventListener('DOMContentLoaded', 
+(document.readyState === "loading" 
+    ? document.addEventListener.bind(this,'DOMContentLoaded')  
+    : function(f){f();}.bind(this)
+).call(this,
 /**
 * Initialize the generate ToC button.
 * 
