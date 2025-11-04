@@ -9,9 +9,10 @@
     ? document.addEventListener.bind(this,'DOMContentLoaded')  
     : function(f){f();}.bind(this)
 ).call(this,
-  function() {
+  function(autofix_config) {
     // when 'autofix = false;', a button will be added to your 'New Post' page. When 'autofix = true', the fix will be added automatically on-submission.
-    const autofix = true;
+    let autofix = true;
+    if (autofix_config == "false")autofix = false;
   
     // check if we're on a page with a new post form
     const form = document.querySelector('form.post-form');
@@ -36,7 +37,9 @@
       // add the button to your 'New Post' page
       document.querySelector('.sticky-controls').appendChild(btn);
     }
-  }
+  }.bind(this, 
+    document.currentScript?.dataset?.autofix,
+    )
 );
 
 /** ensures every line in the post content has two spaces at the end */
