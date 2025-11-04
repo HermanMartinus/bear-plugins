@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+(document.readyState === "loading" 
+    ? document.addEventListener.bind(this,'DOMContentLoaded')  
+    : function(f){f();}.bind(this)
+).call(this,
+function() {
     if ($textarea) {
         $textarea.addEventListener('input', autoResize, false);
 
