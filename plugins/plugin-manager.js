@@ -22,6 +22,7 @@ function get_available_plugins(){
     const plugins = {
         dashboard:{
             "/plugins/full-height-editor.js":{
+                disable: true,
                 name: "Full Height Editor",
                 path: "/plugins/full-height-editor.js",
                 description: "Have the post and homepage content editor expand to fill the page.",
@@ -29,6 +30,7 @@ function get_available_plugins(){
                 creator_url: "https://github.com/HermanMartinus/"
             },
             "/plugins/overtype.js":{
+                disable: true,
                 name: "Syntax highlighting and formatting controls in editor (WIP)",
                 path: "/plugins/overtype.js",
                 prepend_scripts: [
@@ -81,9 +83,9 @@ function get_available_plugins(){
             },
             "/plugins/plugin-manager.js": {
                 disable: true,
-                name: "Plugin Manager",
+                name: "Plugin Manager (installed)",
                 path: "/plugins/plugin-manager.js",
-                description: "Used to install and configure plugins from <a href=\"https://github.com/HermanMartinus/bear-plugins\">Bear Blog Plugins</a>. (<i>If you're seeing this screen, then this is already installed.</i>)",
+                description: "Used to install and configure plugins from <a href=\"https://github.com/HermanMartinus/bear-plugins\">Bear Blog Plugins</a>.",
                 creator_name: "ReedyBear",
                 creator_url: "https://reedybear.bearblog.dev/bearblog/"
             }
