@@ -60,6 +60,17 @@ Set the `data-password` attribute on the script element to the desired password.
 ## Dashboard
 These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under 'Dashboard footer content'.  
 
+
+## Plugin Manager
+Adds a page to your dashboard to allow you to install, configure, and remove plugins via a simple UI. Dashboard plugins will only install on the local machine. Blog plugins are not currently supported, but may be in the future. (*some plugins may be incompatible with auto-installing*)
+
+[Code](/plugins/plugin-manager.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/plugin-manager.js"></script>
+```
+
 ## Full height editor
 
 Have the post and homepage content editor expand to fill the page. 
