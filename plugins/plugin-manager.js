@@ -8,9 +8,13 @@
  *
  * Add `disable: true` to any plugins that must be installed manually. They will still display, but will not be installable via the Plugin Manager.
  *
+ * Dashboard plugins may fail to load if they depend on the DOMContentLoaded event. Solve this using the method at https://reedybear.bearblog.dev/readystate-shorthand/ or by MDN at https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
+ * For plugins to be installable, they should
+ *
  * Plugins can have an 'editable' field listing inputs. Those editable fields will be translated into `data-name=value` attributes on the `<script>` node. See the 'Generate Table of Contents' plugin for an example.
  *
- * Plugins can have a `prepend_scripts` field. This should be an array of absolute URLs pointing to javascript files. Each one will be added as a `<script>` tag, in the order they're listed, immediately above your plugin's `<script>` tag.
+ * Plugins can have a `prepend_scripts` field. This should be an array of absolute URLs pointing to javascript files. When prepend scripts are present, scripts are explicitly loaded in-order using `load` events on the dynamically added `<script>` nodes.
+ *
  *
  */
 function get_available_plugins(){
@@ -21,6 +25,16 @@ function get_available_plugins(){
                 name: "Full Height Editor",
                 path: "/plugins/full-height-editor.js",
                 description: "Have the post and homepage content editor expand to fill the page.",
+                creator_name: "Herman Martinus",
+                creator_url: "https://github.com/HermanMartinus/"
+            },
+            "/plugins/overtype.js":{
+                name: "Syntax highlighting and formatting controls in editor (WIP)",
+                path: "/plugins/overtype.js",
+                prepend_scripts: [
+                    'https://unpkg.com/overtype'
+                ],
+                description: "Use <a href=\"https://overtype.dev/\">Overtype</a> as the editor for syntax highlighting and other formatting control shortcuts. This plugin is a work-in-progress.",
                 creator_name: "Herman Martinus",
                 creator_url: "https://github.com/HermanMartinus/"
             },
@@ -57,18 +71,13 @@ function get_available_plugins(){
                 description: "Count and display total posts and pages.",
                 creator_name: "verfasor",
                 creator_url: "https://github.com/verfasor"
-            },
-            
-            "/plugins/overtype.js":{
-                //disable: true,
-                name: "(WIP) Syntax highlighting and formatting controls in editor",
-                path: "/plugins/overtype.js",
-                prepend_scripts: [
-                    'https://unpkg.com/overtype'
-                ],
-                description: "Use <a href=\"https://overtype.dev/\">Overtype</a> as the editor for syntax highlighting and other formatting control shortcuts.",
-                creator_name: "Herman Martinus",
-                creator_url: "https://github.com/HermanMartinus/"
+            }, 
+            "/plugins/newline-fixer.js": {
+                name: "Fix New Lines in Posts",
+                path: "/plugins/newline-fixer.js",
+                description: "Automatically ensures all lines have two spaces at the end, so Markdown will render new lines. Without two spaces at the end, text written on different lines (<i>without a blank line between them</i>) will render in your post as being on one line.",
+                creator_name: "ReedyBear",
+                creator_url: "https://reedybear.bearblog.dev/bearblog/"
             },
             "/plugins/plugin-manager.js": {
                 disable: true,
@@ -77,41 +86,39 @@ function get_available_plugins(){
                 description: "Used to install and configure plugins from <a href=\"https://github.com/HermanMartinus/bear-plugins\">Bear Blog Plugins</a>. (<i>If you're seeing this screen, then this is already installed.</i>)",
                 creator_name: "ReedyBear",
                 creator_url: "https://reedybear.bearblog.dev/bearblog/"
-            },
-        },
-        blog:{
-            "/plugins/pagination.js":{
-                name: "Pagination on blog",
-                path: "/plugins/pagination.js",
-                description: "Have the blog page or post embed paginated instead of displaying all posts at once.",
-                creator_name: "Herman Martinus",
-                creator_url: "https://github.com/HermanMartinus/"
-            },
-            "/plugins/reading-time.js":{
-                name: "Reading time on post",
-                path: "/plugins/reading-time.js",
-                description: "Display the estimated reading time for a post.",
-                creator_name: "Herman Martinus",
-                creator_url: "https://github.com/HermanMartinus/"
-            },
-            "/plugins/search-posts.js":{
-                name: "Search posts",
-                path: "/plugins/search-posts.js",
-                description: "Search post titles on the blog page with a search input.",
-                creator_name: "Herman Martinus",
-                creator_url: "https://github.com/HermanMartinus/"
-            },
-            "/plugins/password-protect.js":{
-                disable: true,
-                TODO: "data-password must be set on script node in order to set the password",
-                name: "Password protect blog (insecure)",
-                path: "/plugins/password-protect.js",
-                description: "Add a password to a blog in order to view the content. WARNING: This can be easily circumvented by anyone with a decent understanding of Javascript, so should only be used to \"protect\" non-sensitive information.",
-                creator_name: "Herman Martinus",
-                creator_url: "https://github.com/HermanMartinus/",
             }
+        }
+        //,blog:{ // blog plugin manager is not yet available
+            //"/plugins/pagination.js":{
+                //name: "Pagination on blog",
+                //path: "/plugins/pagination.js",
+                //description: "Have the blog page or post embed paginated instead of displaying all posts at once.",
+                //creator_name: "Herman Martinus",
+                //creator_url: "https://github.com/HermanMartinus/"
+            //},
+            //"/plugins/reading-time.js":{
+                //name: "Reading time on post",
+                //path: "/plugins/reading-time.js",
+                //description: "Display the estimated reading time for a post.",
+                //creator_name: "Herman Martinus",
+                //creator_url: "https://github.com/HermanMartinus/"
+            //},
+            //"/plugins/search-posts.js":{
+                //name: "Search posts",
+                //path: "/plugins/search-posts.js",
+                //description: "Search post titles on the blog page with a search input.",
+                //creator_name: "Herman Martinus",
+                //creator_url: "https://github.com/HermanMartinus/"
+            //},
+            //"/plugins/password-protect.js":{
+                //name: "Password protect blog (insecure)",
+                //path: "/plugins/password-protect.js",
+                //description: "Add a password to a blog in order to view the content. WARNING: This can be easily circumvented by anyone with a decent understanding of Javascript, so should only be used to \"protect\" non-sensitive information.",
+                //creator_name: "Herman Martinus",
+                //creator_url: "https://github.com/HermanMartinus/",
+            //}
 
-        },
+        //},
     };
 
     return plugins;
@@ -119,40 +126,57 @@ function get_available_plugins(){
 
 
 /**
+ * Create a `<script>` node, using an onload event to add the next script when it is ready
+ *
+ * @param scripts_array an array of javascript URLs with one or more entries
+ * @param final_script_settings key=>value array of `data-{key}={value}` settings to apply to only the last node in the array
+ */
+function load_scripts_in_order(scripts_array, final_script_settings){
+    const body = document.querySelector('body');
+    const script = document.createElement('script');
+    script.setAttribute('type', "text/javascript");
+    script.setAttribute('src', scripts_array[0]);
+    if (scripts_array.length > 1){
+        script.addEventListener('load',
+            load_scripts_in_order.bind(this, scripts_array.slice(1),
+                final_script_settings
+            )
+        );
+
+    }
+    if (scripts_array.length == 1){
+        for (const setting in final_script_settings){
+            script.setAttribute('data-'+setting, final_script_settings[setting]);
+        }
+    }
+
+    body.appendChild(script);
+}
+
+/**
  * Add `<script>` tag for each installed Dashboard plugin.
  */
 function load_locally_installed_plugins(){
     const plugins = get_installed_plugins();
     const available_plugins = get_available_plugins();
-    //console.log(plugins);
 
-    const body = document.querySelector('body');
     for (let plugin_path in plugins){
 
         const plugin_details = available_plugins['dashboard'][plugin_path];
+        const prepend_scripts = plugin_details.prepend_scripts || null; 
 
-        const prepend_scripts = plugin_details.prepend_scripts || [];
-        //let has_prepend = false;
-        for (const script_url of prepend_scripts){
-            const pre_script = document.createElement('script');
-            pre_script.setAttribute('type', "text/javascript");
-            pre_script.setAttribute('src', script_url);
-            body.appendChild(pre_script);
-            //has_prepend = true;
-        }
 
-        const script_node = document.createElement('script');
-        //if (has_prepend)script_node.setAttribute('defer', true);
-        script_node.setAttribute('type', "text/javascript");
         if (!plugin_path.startsWith('/'))plugin_path = "/"+plugin_path;
-        script_node.setAttribute('src', "https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins"+plugin_path);
+        const main_script_path = "https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins"+plugin_path;
+
         const settings = plugins[plugin_path].settings || {};
-        for (const setting in settings){
-            script_node.setAttribute('data-'+setting, settings[setting]);
+
+        if (prepend_scripts == null || prepend_scripts.length == 0){
+            load_scripts_in_order([main_script_path], settings);
+        } else {
+            prepend_scripts.push(main_script_path);
+            load_scripts_in_order(prepend_scripts, settings);
         }
-
-
-        body.appendChild(script_node);
     }
 }
 
@@ -189,6 +213,7 @@ function install_plugin_locally(plugin_path){
             continue;
         }
         for (const conf_name in p.editable || {}){
+            // load default values for editable configurations 
             const conf = p.editable[conf_name];
             if (conf.hasOwnProperty('default')){
                 if (!installed_plugins[plugin_path].hasOwnProperty('settings')){
@@ -238,11 +263,7 @@ function show_plugin_manager(force_refresh){
 
     const plugins = get_available_plugins();
 
-
     const installed_plugins = get_installed_plugins();
-
-    //console.log(plugins);
-    //console.log(plugins.dashboard);
 
     for (const key in plugins.dashboard){
         const plugin = plugins.dashboard[key];
@@ -254,6 +275,9 @@ function show_plugin_manager(force_refresh){
     }
 }
 
+/**
+ * Collect configurable settings from the `<input>` tags and save them to local storage. Disable the `Save` button.
+ */
 function save_configurations(save_button, plugin_path){
     const fieldset = save_button.parentNode;
     const inputs = fieldset.querySelectorAll('input');
@@ -271,6 +295,7 @@ function save_configurations(save_button, plugin_path){
     save_button.setAttribute("disabled", "disabled");
 }
 
+/** Enable the `Save` button */
 function make_fieldset_saveable(input){
     const fieldset = input.parentNode.parentNode;
     const save_button = fieldset.querySelector('button');
@@ -280,6 +305,7 @@ function make_fieldset_saveable(input){
 
 /**
  * Get the HTML for a single plugin. To be displayed in a list of plugins for installation/removal.
+ * TODO: For disabled plugins, print a codeblock that the user can copy+paste in order to manually install
  *
  * @param plugin A single plugin as retrieved from `get_available_plugins()`
  * @param installed_plugins, as returned from get_installed_plugins()
@@ -367,13 +393,19 @@ function get_plugin_manager_template(){
 
 
 
-document.addEventListener('DOMContentLoaded',
+// if DOMContentLoaded event HAS been called, then the function will be executed immediately. Otherwise the event will be used.
+//
+// See https://reedybear.bearblog.dev/readystate-shorthand/ or https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event#checking_whether_loading_is_already_complete
+(document.readyState === "loading" 
+    ? document.addEventListener.bind(this,'DOMContentLoaded')  
+    : function(f){f();}.bind(this)
+).call(this,
 /**
- * Add the 'Plugins' link when you're on a dashboard page, and render the Plugins view if on #manage-plugins
+ * Load installed dashboard plugins, add the 'Plugins' link when you're on a dashboard page, and render the Plugins view if on #manage-plugins
  */
     function(){
-        load_locally_installed_plugins();
 
+        load_locally_installed_plugins();
         // return if we're not on one of the dashboard pages.
         const url = window.location.href;
         if (!(
@@ -393,8 +425,7 @@ document.addEventListener('DOMContentLoaded',
         plugins_link.href = "#manage-plugins";
         plugins_link.setAttribute('onclick', "show_plugin_manager()");
         plugins_link.innerText = "Plugins";
-        //span.innerHTML = 'test';
-        span.appendChild(plugins_link, null);
+        span.appendChild(plugins_link);
 
 
         if (url.endsWith('#manage-plugins'))show_plugin_manager();
