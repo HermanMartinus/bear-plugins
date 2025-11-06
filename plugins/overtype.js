@@ -1,7 +1,11 @@
 // Ensure you add the import for the Overtype library above this one
 // <script src="https://unpkg.com/overtype"></script>
 
-document.addEventListener('DOMContentLoaded', function() {
+(document.readyState === "loading" 
+    ? document.addEventListener.bind(this,'DOMContentLoaded')  
+    : function(f){f();}.bind(this)
+).call(this,
+function() {
     if ($textarea) {
         $textarea.style.display = "none";
         $uploadButton.style.display = "none"; // This is incompatible with the editor

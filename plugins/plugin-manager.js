@@ -22,7 +22,6 @@ function get_available_plugins(){
     const plugins = {
         dashboard:{
             "/plugins/full-height-editor.js":{
-                disable: true,
                 name: "Full Height Editor",
                 path: "/plugins/full-height-editor.js",
                 description: "Have the post and homepage content editor expand to fill the page.",
@@ -30,7 +29,6 @@ function get_available_plugins(){
                 creator_url: "https://github.com/HermanMartinus/"
             },
             "/plugins/overtype.js":{
-                disable: true,
                 name: "Syntax highlighting and formatting controls in editor (WIP)",
                 path: "/plugins/overtype.js",
                 prepend_scripts: [
