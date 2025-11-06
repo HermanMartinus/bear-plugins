@@ -1,27 +1,45 @@
 /**
 * This adds a button to your 'new post' page, which, when clicked, generates HTML for a Table of Contents. This HTMl is copied into your clipboard and then you can paste it into your post.
 *
-* Originally published at https://reedybear.bearblog.dev/generate-a-table-of-contents-on-bearblog/   This version contains editable variables at the start for easier modification. It also wraps the main code in a function for scoping purposes.
+* Customize by setting `data-` attributes on the script node. `data-header`, `data-class`, and `data-button`.
+*
+* Originally published at https://reedybear.bearblog.dev/generate-a-table-of-contents-on-bearblog/   This version is easier to customize and may contain other fixes.
 */
 
-// wrap it in a function to prevent variables from conaminating other scripts.
-(function(){
+(document.readyState === "loading" 
+    ? document.addEventListener.bind(this,'DOMContentLoaded')  
+    : function(f){f();}.bind(this)
+).call(this,
+/**
+* Initialize the generate ToC button.
+* 
+* Function receives optional paramaters header, clazz (class), button which are bound to it via the script node's `data-` attributes.
+*/
+function(header, clazz, button, event){
   // the text that appears at the top of your table of contents
-  const toc_header = "Contents:";
+  const toc_header = header || "Contents:";
   // the css class added to the <div> that wraps your table of contents
-  const toc_class = "toc";
+  const toc_class = clazz || "toc";
   // the text that appears on the button you click
-  const button_text = "Generate ToC";
+  const button_text = button || "Generate ToC";
 
+  // make sure we're on a new post page that has button controls
+  const controls = document.querySelector('.sticky-controls');
+  if (controls == null) return;
     
   // create a new button element
   const toc_btn = document.createElement('button');
-  toc_btn.classList.add('rdb_post_restorer');
+  toc_btn.classList.add('generate_table_of_contents');
   toc_btn.setAttribute('onclick', "event.preventDefault();generate_toc('"+toc_header+"','"+toc_class+"');");
   toc_btn.innerText = button_text;
   // add the button to your 'New Post' page
-  document.querySelector('.sticky-controls').appendChild(toc_btn);
-})();
+  controls.appendChild(toc_btn);
+}.bind(this, 
+    document.currentScript?.dataset?.header, 
+    document.currentScript?.dataset?.class, 
+    document.currentScript?.dataset?.button, 
+    )
+);
 
 /** scan your post text and generate a ToC, copying it to your clipboard */
 function generate_toc(toc_header, toc_class){
