@@ -4,7 +4,7 @@ The following scripts are extentions for the Bear Blog platform. These are not o
 
 They are separated into **Blog** and **Dashboard** tools to distinguish if they are used on the rendering of the blog, or if they are an extension to the Bear editor and dashboard. 
 
-These extensions can be used either by including the provided script links, or by copying and pasting the JS itself into a `<script></script>` tag into the head or footer directive of your blog. The latter option gives you more control over the script and can be modified as you see fit. 
+These extensions can be used either by including the provided script links, or by copying and pasting the JS itself into a `<script></script>` tag into the head or footer directive of your blog. The latter option gives you more control over the script and can be modified as you see fit. Dashboard plugins can be installed via the [unofficial Plugin Manager](#plugin-manager).
 
 ## Blog
 
@@ -59,6 +59,21 @@ Set the `data-password` attribute on the script element to the desired password.
 
 ## Dashboard
 These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under 'Dashboard footer content'.  
+
+
+## Plugin Manager
+Adds a page to your dashboard to allow you to install, configure, and remove plugins via a simple UI. Dashboard plugins will only install on the local machine. Blog plugins are not currently supported, but may be in the future. (*some plugins may be incompatible with auto-installing*).
+
+*Install the plugin manager by copy+pasting the `<script>` tag below into [Customise Dashboard](https://bearblog.dev/dashboard/customise/). This way, the Plugin Manager will be auto-updated. Installing by copy+pasting the plugin manager's full code is NOT recommended.*
+
+[Code](/plugins/plugin-manager.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/plugin-manager.js"></script>
+```
+
+**Plugin Developers:** To make your plugin installable via the Plugin Manager, you must edit [plugin-manager.js](/plugins/plugin-manager.js). Instructions are available in the docblock.
 
 ## Full height editor
 
