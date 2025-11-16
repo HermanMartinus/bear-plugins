@@ -6,6 +6,7 @@ Dashboard plugins should be added to the Plugin Manager at [`/plugins/plugin-man
 ## Docs
 - Plugin Template
 - Check for New Post / Edit Post pages
+- Auto-refresh script during development
 
 ## Plugin Template
 This plugin structure is recommended, but not required.
@@ -54,3 +55,12 @@ function(config1, config2) {
       // your code goes here
   }
 ```
+
+## Auto-refresh script during development
+*If you have a better suggestion, please contribute it here*
+
+1. On your local machine, create a `.js` file for whatever plugin you're developing
+2. Start a localhost webserver that delivers this `.js` file
+3. Add `<script type="text/javascript" src="http://localhost:3000/my-script.js"></script>` to your customise dashboard or head directive section.
+
+ This way, when your dashboard or blog loads, it will load that script from your localhost server. This way, all you have to do is save your script and then refresh the page.
