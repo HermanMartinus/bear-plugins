@@ -5,6 +5,7 @@ Dashboard plugins should be added to the Plugin Manager at [`/plugins/plugin-man
 
 ## Docs
 - Plugin Template
+- `jsdelivr.net` url
 - Check for New Post / Edit Post pages
 - Auto-refresh script during development
 
@@ -45,6 +46,18 @@ The following plugin template allows plugins to:
 
 *Note: [currentScript](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript) cannot be referenced from inside a function/event handler, so its values must be bound to your function*
 
+## `jsdelivr.net` url
+On the readme, you will add a tag like the following for your plugin:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/PLUGIN_NAME.js"></script>
+```
+
+[`jsdelivr`](https://www.jsdelivr.com/) will load `/plugins/PLUGIN_NAME.js` from the bear plugins repository on GitHub. No action is required from you, except to set the correct URL here pointing to your plugin's `.js` file in the `/plugins/` dir. 
+
+*Note: The jsdelivr.net url will not work until the Pull Request for your plugin is merged.*
+
+*Caching: jsdelivr [caches files](https://www.jsdelivr.com/documentation#id-caching) for 7 days, so it may take up to 7 days for changes to your plugin to hit end users after your PR is merged.*
 
 ## Check for New Post / Edit Post pages
 Post pages (*new post, edit post, home page editor*) define a `$textarea` variable, so in our main function, we just check if `$textarea` is set and return if not. 
@@ -63,4 +76,4 @@ function(config1, config2) {
 2. Start a localhost webserver that delivers this `.js` file
 3. Add `<script type="text/javascript" src="http://localhost:3000/my-script.js"></script>` to your customise dashboard or head directive section.
 
- This way, when your dashboard or blog loads, it will load that script from your localhost server. This way, all you have to do is save your script and then refresh the page.
+ This way, when your dashboard or blog loads, it will load that script from your localhost server. This way, all you have to do is save your script and then refresh the page. If you don't know how to do this, then don't worry about it, you can just update the code on the bearblog dashboard directly.
