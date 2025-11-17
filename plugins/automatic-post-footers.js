@@ -1,5 +1,7 @@
 /** Automatically add footers to your posts based upon the tags you've added to the post
 *
+*  Add `data-first_tag_only="true"` to only add one footer to each post instead of adding footers for every tag.
+*
 * This plugin developed by: ReedyBear https://reedybear.bearblog.dev/bearblog/
 */
 
@@ -48,9 +50,9 @@
     )
 );
 
-function insert_auto_footer(show_first_only){
+function insert_tagbased_footer(show_first_only){
     const header = document.querySelector('#header_content');
-    const tag_match = header.innerHTML.match(/tags:(.+)/);
+    const tag_match = header.innerHTML.match(/tags:([^\<]+)/);
     tag_list = tag_match[1].trim().split(",").map((tag)=>tag.trim());
     const post_footer = [];
     for (const tag of tag_list){
