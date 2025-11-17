@@ -2,9 +2,13 @@
 
 The following scripts are extentions for the Bear Blog platform. These are not official extensions to Bear and may need a bit of tweaking here and there. **Consider contributing!**
 
-They are separated into **Blog** and **Dashboard** tools to distinguish if they are used on the rendering of the blog, or if they are an extension to the Bear editor and dashboard. 
+**Blog** plugins can be installed by copy+pasting code into `Head Directive` (*found via Settings*), and will affect your public-facing blog. Requires paid upgrade.
 
-These extensions can be used either by including the provided script links, or by copying and pasting the JS itself into a `<script></script>` tag into the head or footer directive of your blog. The latter option gives you more control over the script and can be modified as you see fit. Dashboard plugins can be installed via the [unofficial Plugin Manager](#plugin-manager).
+**Dashboard** plugins can be installed by copy+pasting the `<script>` tags below into your [Customise dashboard](https://bearblog.dev/dashboard/customise/) page, or via the [unofficial Plugin Manager](#plugin-manager).
+
+*Alternate Installation: You can copy+paste a plugin's full code from its `Code` link and paste it into a `<script>` tag. Ex: `<script>CODE GOES HERE</script>`*
+
+*__Developers__: See [Plugin Developer Documentation](/docs/)*
 
 ## Blog
 
