@@ -8,6 +8,7 @@ Dashboard plugins should be added to the Plugin Manager at [`/plugins/plugin-man
 - `jsdelivr.net` url
 - Check for New Post / Edit Post pages
 - Auto-refresh script during development
+- Create a new dashboard page
 
 ## Plugin Template
 This plugin structure is recommended, but not required.
@@ -76,4 +77,56 @@ function(config1, config2) {
 2. Start a localhost webserver that delivers this `.js` file
 3. Add `<script type="text/javascript" src="http://localhost:3000/my-script.js"></script>` to your customise dashboard or head directive section.
 
- This way, when your dashboard or blog loads, it will load that script from your localhost server. This way, all you have to do is save your script and then refresh the page. If you don't know how to do this, then don't worry about it, you can just update the code on the bearblog dashboard directly.
+This way, when your dashboard or blog loads, it will load that script from your localhost server. This way, all you have to do is save your script and then refresh the page. If you don't know how to do this, then don't worry about it, you can just update the code on the bearblog dashboard directly.
+
+## Create a new dashboard page
+Via Javascript, you'll add a link to the page, linking to `#your-page-url`, then when the URL ends with `#your-page-url`, you replace the page content with your page's content.
+
+See an example page in the [plugin manager](/plugins/plugin-manager.js) in the `show_plugin_manager()`. Example of URL management and link adding is available at the end of that script in the main function.
+
+**You Must:** Edit all the `ALL_CAPS` items in the sample code below
+```javascript
+// this goes in your main function
+if (window.location.href.endsWith('#your-page-url'))SHOW_YOUR_PAGE();
+
+/**
+ * Show your plugin's page
+ *
+ * @param force_refresh boolean true\false. Use `false` when displaying initially, and use `true` when forcing a refresh
+ */
+function SHOW_YOUR_PAGE(force_refresh){
+    // edit these settings
+    const page_class = "--YOUR_PAGES_CLASS--"; 
+    const page_name = "YOUR PAGE'S NAME | Bear Blog";
+
+    // make sure it's an initial load OR force_refresh is true
+    const main = document.querySelector('body > main');
+    if (main.classList.contains(page_class) 
+        && force_refresh !== true)return;
+
+    main.classList.add(page_class);
+    main.innerHTML = '';
+
+    document.querySelector('head title').innerText = page_name;
+
+    // TODO: Set the correct function name here, or inline the page HTML
+    const template = GET_YOUR_PAGES_TEMPLATE();
+
+    main.innerHTML = template;
+
+    // dynamically interact with your page now that the template is loaded
+    // for example: the plugin manager loads the list of plugins and inserts them into the appropriate part of the template
+}
+
+function GET_YOUR_PAGES_TEMPLATE(){
+   const template =  
+    `
+        <h1>PAGE HEADER</h1>
+        <p>ABOUT THIS PAGE</p>
+        ... OTHER HTML HERE ...
+    `;
+    return template;
+}
+```
+
+
