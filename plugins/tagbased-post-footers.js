@@ -1,4 +1,4 @@
-/** Automatically add footers to your posts based upon the tags you've added to the post
+/** Automatically add footers to your posts based upon the tags you've added to the post. Adds a page for managing these footers. Adds a button the new post/edit post page.
 *
 *  Add `data-first_tag_only="true"` to only add one footer to each post instead of adding footers for every tag.
 *
