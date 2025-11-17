@@ -138,3 +138,15 @@ Embed:
 ```
 **Configuration:** Set `data-autofix="false"` (*must be lowercase*) too add a 'Fix new lines' button. Otherwise, the newline fix is applied automatically when clicking 'Publish' or 'Save as draft'.
 
+## Add Footers Based on Tags
+Lets you add footers to posts based on the tags on that post, simply by clicking a button. Adds a page to edit configured footers. You can access this page via the link at the bottom right of New Post/Edit Post pages.
+
+[Code](/plugins/tagbased-post-footers.js)
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/tagbased-post-footers.js"
+    data-first_tag_only="false"
+></script>
+```
+**Configuration:** Set `data-first_tag_only="true"` (*must be lowercase*) to only add a footer for the first tag in your taglist. By default adds configured footer for every tag in your taglist.
