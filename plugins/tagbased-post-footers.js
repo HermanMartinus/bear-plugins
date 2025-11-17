@@ -52,7 +52,7 @@
 
 function insert_tagbased_footer(show_first_only){
     const header = document.querySelector('#header_content');
-    const tag_match = header.innerHTML.match(/tags:([^\<]+)/);
+    const tag_match = header.innerHTML.match(/tags:(\<\/b\>)?([^\<\n]+)/);
     tag_list = tag_match[1].trim().split(",").map((tag)=>tag.trim());
     const post_footer = [];
     for (const tag of tag_list){
