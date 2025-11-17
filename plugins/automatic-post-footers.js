@@ -19,9 +19,25 @@
    * @param config2 bool true or false [tell me what it does]
    */
   function(first_tag_only) {
+
+      
+      // this goes in your main function
+      if (window.location.href.endsWith('#manage-tagbased-footers')){
+          show_tagbased_footer_editor_page();
+          return;
+      }
+      
       if (!$textarea)return;
       const controls = document.querySelector('.sticky-controls');
       if (controls == null) return;
+
+      const link_container = document.querySelector('span.helptext.sticky > span:nth-child(2)');
+      const link = document.createElement('a');
+      link.href = '#manage-tagbased-footers';
+      link.target = '_blank';
+      link.text = 'Manage Auto-Footers';
+      link_container.appendChild(document.createTextNode(' | '));
+      link_container.appendChild(link);
 
       let is_first_only;
       if (first_tag_only=='true')is_first_only = 'true';
@@ -58,12 +74,6 @@ function insert_auto_footer(){
 }
 
 function get_footer_content(tag){
-    // TODO use local storage
-    const footers = {
-        abc: "abc footer content",
-        def: "def footer content",
-        "qr-zx_59": "qr whatever blah blah"
-    };
     const footers_string = localStorage.getItem('tagbased_post_footers');
     if (footers_string == null) return null;
     
@@ -81,6 +91,45 @@ function store_footer_content(tag, content){
     localStorage.setItem('tagbased_post_footers', JSON.stringify(footers));
 }
 
+
+/**
+ * Show your plugin's page
+ *
+ * @param force_refresh boolean true\false. Use `false` when displaying initially, and use `true` when forcing a refresh
+ */
+function show_tagbased_footer_editor_page(force_refresh){
+    // edit these settings
+    const page_class = "tagbased-footer-editor"; 
+    const page_name = "Automatic Footer Manager | Bear Blog";
+
+    // make sure it's an initial load OR force_refresh is true
+    const main = document.querySelector('body > main');
+    if (main.classList.contains(page_class) 
+        && force_refresh !== true)return;
+
+    main.classList.add(page_class);
+    main.innerHTML = '';
+
+    document.querySelector('head title').innerText = page_name;
+
+    // TODO: Set the correct function name here, or inline the page HTML
+    const template = get_tagbased_footer_editor_page_template();
+
+    main.innerHTML = template;
+
+    // dynamically interact with your page now that the template is loaded
+    // for example: the plugin manager loads the list of plugins and inserts them into the appropriate part of the template
+}
+
+function get_tagbased_footer_editor_page_template(){
+   const template =  
+    `
+        <h1>Automatic Footer Manager</h1>
+        <p>Edit your automatic footers, which are inserted depending on the tags you add to your post. On the Plugin Manager page, you can configure whether footers are inserted for all tags, or just for the first listed tag.</p>
+        <div class="tag_list"></div>
+    `;
+    return template;
+}
 
 
 
