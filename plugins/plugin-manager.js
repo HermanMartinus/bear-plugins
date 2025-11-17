@@ -79,6 +79,13 @@ function get_available_plugins(){
                 creator_name: "ReedyBear",
                 creator_url: "https://reedybear.bearblog.dev/bearblog/"
             },
+            "/plugins/tagbased-post-footers.js": {
+                name: "Footers Based on Tags",
+                path: "/plugins/tagbased-post-footers.js",
+                description: "Click a button to add custom footers to a post based upon its tags. Adds a page to edit configured footers. You can access this page via the link at the bottom right of New Post/Edit Post pages.",
+                creator_name: "ReedyBear",
+                creator_url: "https://reedybear.bearblog.dev/bearblog/"
+            },
             "/plugins/plugin-manager.js": {
                 disable: true,
                 name: "Plugin Manager (installed)",
@@ -87,6 +94,7 @@ function get_available_plugins(){
                 creator_name: "ReedyBear",
                 creator_url: "https://reedybear.bearblog.dev/bearblog/"
             }
+
         }
         //,blog:{ // blog plugin manager is not yet available
             //"/plugins/pagination.js":{
