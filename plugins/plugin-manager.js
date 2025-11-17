@@ -84,7 +84,15 @@ function get_available_plugins(){
                 path: "/plugins/tagbased-post-footers.js",
                 description: "Click a button to add custom footers to a post based upon its tags. Adds a page to edit configured footers. You can access this page via the link at the bottom right of New Post/Edit Post pages.",
                 creator_name: "ReedyBear",
-                creator_url: "https://reedybear.bearblog.dev/bearblog/"
+                creator_url: "https://reedybear.bearblog.dev/bearblog/",
+                editable: {
+                    first_tag_only: {
+                        label: "First Tag Only",
+                        default: "false",
+                        description: "Set to <strong>true</strong> (<i>must be lowercase,</i>) to only add footers for the first tag in the list. By default, adds a footer for every tag in the taglist.",
+                        type: "text"
+                    }
+                }
             },
             "/plugins/plugin-manager.js": {
                 disable: true,
