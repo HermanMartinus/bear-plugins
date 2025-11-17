@@ -196,7 +196,6 @@ function add_tagbased_footer_form(){
 
     delete_button.addEventListener('click',
         function(fieldset){
-            console.log(fieldset);
             const tag_node = fieldset.querySelector('input[name="tag"]');
             const tag = tag_node.value.trim();
             if (!confirm('Delete footer for tag "'+tag+'"?'))return;
