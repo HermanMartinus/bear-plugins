@@ -3,13 +3,6 @@
 * This plugin developed by: ReedyBear https://reedybear.bearblog.dev/bearblog/
 */
 
-// TODO:
-// - Add page to create footers
-// - DONE use local storage instead of placeholder array
-// - DONE (simple append on button click) Re-think how I'm handling the AUTO_POST_FOOTER_START/END stuff. It's just ugly. A simple insert at the end might be better. Or referencing the last occurence of `---` might be better. Making this somewhat configurable might also be best
-// - DONE (button always) consider whether it should use a button or actually be automatic (*it could be automatically updated when tags change?*)
-// - DONE (setting present) Consider adding a setting for whether we just add a footer for the FIRST tag, or if we add it for ALL tags
-
 (document.readyState === "loading" 
     ? document.addEventListener.bind(this,'DOMContentLoaded')  
     : function(f){f();}.bind(this)
@@ -55,15 +48,16 @@
     )
 );
 
-function insert_auto_footer(){
+function insert_auto_footer(show_first_only){
     const header = document.querySelector('#header_content');
     const tag_match = header.innerHTML.match(/tags:(.+)/);
     tag_list = tag_match[1].trim().split(",").map((tag)=>tag.trim());
     const post_footer = [];
     for (const tag of tag_list){
-        const footer_content = get_footer_content(tag);
+        const footer_content = get_tagbased_footer_content(tag);
         if (footer_content == null) continue;
         post_footer.push(footer_content);
+        if (show_first_only)break;
     }
 
     const post_body = $textarea.value;
@@ -73,21 +67,22 @@ function insert_auto_footer(){
           +post_footer.join("\n\n");
 }
 
-function get_footer_content(tag){
+function get_tagbased_footer_content(tag){
+    return get_tagbased_footer_list()[tag] ?? null;
+}
+function get_tagbased_footer_list(){
     const footers_string = localStorage.getItem('tagbased_post_footers');
-    if (footers_string == null) return null;
+    if (footers_string == null) return {};
     
     const footers = JSON.parse(footers_string);
-    return footers[tag];
+    return footers;
 }
 
-function store_footer_content(tag, content){
-    const footers_string = localStorage.getItem('tagbased_post_footers');
-    let footers;
-    if (footers_string == null) footers = {};
-    else footers = JSON.parse(footers_string);
-
+/* pass content=false to delete the tag */
+function store_tagbased_footer_content(tag, content){
+    let footers = get_tagbased_footer_list();
     footers[tag] = content;
+    if (content === false)delete footers[tag];
     localStorage.setItem('tagbased_post_footers', JSON.stringify(footers));
 }
 
@@ -112,10 +107,21 @@ function show_tagbased_footer_editor_page(force_refresh){
 
     document.querySelector('head title').innerText = page_name;
 
-    // TODO: Set the correct function name here, or inline the page HTML
     const template = get_tagbased_footer_editor_page_template();
 
     main.innerHTML = template;
+
+    const saved_footers = get_tagbased_footer_list();
+
+    const tag_list = main.querySelector('.tag_footer_list');
+    for (const tag in saved_footers){
+        const fieldset = add_tagbased_footer_form();
+        const tag_name = fieldset.querySelector('input[name="tag"]');
+        tag_name.value = tag;
+        tag_name.setAttribute('disabled', 'true');
+        fieldset.querySelector('textarea').value = saved_footers[tag];
+        tag_list.appendChild(fieldset);
+    }
 
     // dynamically interact with your page now that the template is loaded
     // for example: the plugin manager loads the list of plugins and inserts them into the appropriate part of the template
@@ -126,9 +132,78 @@ function get_tagbased_footer_editor_page_template(){
     `
         <h1>Automatic Footer Manager</h1>
         <p>Edit your automatic footers, which are inserted depending on the tags you add to your post. On the Plugin Manager page, you can configure whether footers are inserted for all tags, or just for the first listed tag.</p>
-        <div class="tag_list"></div>
+        <button class="add_footer" onclick="add_tagbased_footer_form();">Add Footer</button>
+        <div class="tag_footer_list"></div>
     `;
     return template;
+}
+
+function get_tagbased_footer_form_template(){
+    const template = 
+    `
+        <label>Tag<br><input type="text" name="tag" placeholder="tag" /></label>
+        <br>
+        <label>Footer Content<br><textarea name="footer_content" style="width:50%; height:10em;"></textarea></label>
+        <br>
+        <button class="save" disabled>unedited</button>
+        <button class="delete">Delete</button>
+        <br>
+    `;
+    return template;
+}
+
+function add_tagbased_footer_form(){
+    const form = document.createElement('fieldset');
+    form.innerHTML = get_tagbased_footer_form_template();
+    const list = document.querySelector(".tag_footer_list");
+    list.insertBefore(form, list.firstChild);
+    const save_button = form.querySelector('.save');
+    const tag_name = form.querySelector('input[name="tag"]');
+    const delete_button = form.querySelector('.delete');
+    const fields = [
+        tag_name, 
+        form.querySelector('textarea')
+    ];
+    fields.map(function(node){
+      node.addEventListener('keyup',
+        function(save_button, tag_name_node){
+            if (tag_name_node.value == ''){
+              save_button.innerText='add tag name';
+              save_button.setAttribute('disabled', "true");
+              return;
+            }
+            if (save_button.innerText=='Save')return;
+            save_button.innerText='Save';
+            save_button.removeAttribute('disabled');
+        }.bind(null,save_button, tag_name)
+      )
+    });
+
+    save_button.addEventListener('click',
+        function(self, fieldset){
+            const tag_node = fieldset.querySelector('input[name="tag"]')
+            const tag = tag_node.value.trim();
+            const footer = fieldset.querySelector('textarea').value.trim();
+            store_tagbased_footer_content(tag, footer);
+            self.setAttribute('disabled', true);
+            self.innerText = 'saved';
+            tag_node.disabled = "true";
+        }.bind(null, save_button, form)
+    );
+
+
+    delete_button.addEventListener('click',
+        function(fieldset){
+            console.log(fieldset);
+            const tag_node = fieldset.querySelector('input[name="tag"]');
+            const tag = tag_node.value.trim();
+            if (!confirm('Delete footer for tag "'+tag+'"?'))return;
+            store_tagbased_footer_content(tag, false);
+            fieldset.parentNode.removeChild(fieldset);
+        }.bind(null, form)
+    );
+
+    return form;
 }
 
 
