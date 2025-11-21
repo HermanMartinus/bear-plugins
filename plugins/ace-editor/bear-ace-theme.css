@@ -1,0 +1,177 @@
+/*
+ * This is a customized version of ace-editor's Solarized Dark theme,
+ * made specifically for Bear Blog.
+ *
+ * The original theme this is built on is available here:
+ * https://github.com/ajaxorg/ace/blob/master/src/theme/solarized_dark-css.js
+ *
+ * The following modifications were made:
+ *   - Added three darker colors: `base04`, `base05`, `base06`
+ *   - Lightened the blue color to increase contrast
+ *   - Gave Markdown headings a different color than standard text
+ *   - Made inline **bold** and _italic_ actually display as bold or italic
+ */
+
+:root {
+    --editor-font-size: 16px;
+    --editor-font-family: "Hack", "Menlo", "Consolas", "Monaco", "Adwaita Mono", "Liberation Mono", "Lucida Console", monospace;
+    --solarized-base06: #00141b;
+    --solarized-base05: #001c24;
+    --solarized-base04: #00232d;
+    --solarized-base03: #002b36;
+    --solarized-base02: #073642;
+    --solarized-base01: #586e75;
+    --solarized-base00: #657b83;
+    --solarized-base0: #839496;
+    --solarized-base1: #93a1a1;
+    --solarized-base2: #eee8d5;
+    --solarized-base3: #fdf6e3;
+    --solarized-yellow: #b58900;
+    --solarized-orange: #cb4b16;
+    --solarized-red: #dc322f;
+    --solarized-magenta: #d33682;
+    --solarized-violet: #6c71c4;
+    --solarized-blue: #1aa5ff;
+    --solarized-cyan: #2aa198;
+    --solarized-green: #859900;
+}
+
+.ace_editor {
+    font-family: var(--editor-font-family);
+    font-size: var(--editor-font-size);
+}
+
+.ace-solarized-dark .ace_gutter {
+    background: var(--solarized-base05);
+    color: var(--solarized-base01);
+}
+
+.ace-solarized-dark .ace_print-margin {
+    width: 1px;
+    background: var(--solarized-base04);
+}
+
+.ace-solarized-dark {
+    background: var(--solarized-base06);
+    color: var(--solarized-base2);
+}
+
+.ace-solarized-dark .ace_entity.ace_other.ace_attribute-name,
+.ace-solarized-dark .ace_storage {
+    color: #839496;
+}
+
+.ace-solarized-dark .ace_cursor,
+.ace-solarized-dark .ace_string.ace_regexp {
+    color: var(--solarized-blue);
+}
+
+.ace-solarized-dark .ace_marker-layer .ace_active-line,
+.ace-solarized-dark .ace_marker-layer .ace_selection {
+    background: var(--solarized-base04);
+}
+
+.ace-solarized-dark.ace_multiselect .ace_selection.ace_start {
+    box-shadow: 0 0 3px 0px #002B36;
+}
+
+.ace-solarized-dark .ace_marker-layer .ace_step {
+    background: rgb(102, 82, 0);
+}
+
+.ace-solarized-dark .ace_marker-layer .ace_bracket {
+    margin: -1px 0 0 -1px;
+    border: 1px solid rgba(147, 161, 161, 0.50);
+}
+
+.ace-solarized-dark .ace_gutter-active-line {
+    background-color: #0d3440;
+}
+
+.ace-solarized-dark .ace_marker-layer .ace_selected-word {
+    border: 1px solid #073642;
+}
+
+.ace-solarized-dark .ace_invisible {
+    color: rgba(147, 161, 161, 0.50);
+}
+
+.ace-solarized-dark .ace_keyword,
+.ace-solarized-dark .ace_meta,
+.ace-solarized-dark .ace_support.ace_class,
+.ace-solarized-dark .ace_support.ace_type {
+    color: #859900;
+}
+
+.ace-solarized-dark .ace_constant.ace_character,
+.ace-solarized-dark .ace_constant.ace_other {
+    color: #CB4B16;
+}
+
+.ace-solarized-dark .ace_constant.ace_language {
+    color: #B58900;
+}
+
+.ace-solarized-dark .ace_constant.ace_numeric {
+    color: #D33682;
+}
+
+.ace-solarized-dark .ace_fold {
+    background-color: #268BD2;
+    border-color: #93A1A1;
+}
+
+.ace-solarized-dark .ace_entity.ace_name.ace_function,
+.ace-solarized-dark .ace_entity.ace_name.ace_tag,
+.ace-solarized-dark .ace_support.ace_function,
+.ace-solarized-dark .ace_variable,
+.ace-solarized-dark .ace_variable.ace_language {
+    color: #268BD2;
+}
+
+.ace-solarized-dark .ace_string {
+    color: #2AA198;
+}
+
+.ace-solarized-dark .ace_comment {
+    font-style: italic;
+    color: #657B83;
+}
+
+.ace-solarized-dark .ace_indent-guide {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNg0Db1ZVCxc/sPAAd4AlUHlLenAAAAAElFTkSuQmCC") right repeat-y;
+}
+
+.ace-solarized-dark .ace_indent-guide-active {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQIW2PQ1dX9zzBz5sz/ABCcBFFentLlAAAAAElFTkSuQmCC") right repeat-y;
+}
+
+/* # Headings */
+.ace-solarized-dark .ace_heading {
+    color: var(--solarized-blue);
+}
+
+/* **bold** text */
+.ace-solarized-dark .ace_string.ace_strong {
+    font-weight: bold;
+}
+
+/* _italic_ text */
+.ace-solarized-dark .ace_string.ace_emphasis {
+    font-style: italic;
+}
+
+/* `code blocks` */
+.ace-solarized-dark .ace_support.ace_function {
+    color: var(--solarized-magenta);
+}
+
+/* > Blockquotes */
+.ace-solarized-dark .ace_blockquote {
+    color: var(--solarized-green);
+}
+
+/* List item prefixes: both numbers (1.) and bullets (-, *, and +) */
+.ace-solarized-dark .ace_markup.ace_list {
+    color: var(--solarized-yellow);
+}
