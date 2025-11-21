@@ -66,8 +66,7 @@
     color: var(--solarized-blue);
 }
 
-.ace-solarized-dark .ace_marker-layer .ace_active-line,
-.ace-solarized-dark .ace_marker-layer .ace_selection {
+.ace-solarized-dark .ace_marker-layer .ace_active-line {
     background: var(--solarized-base04);
 }
 
