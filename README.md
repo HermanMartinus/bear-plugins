@@ -62,7 +62,7 @@ Add a container to display images from a github repository into a masonry style 
 
 Embed:
 ```
-<script src="https://cdn.jsdelivr.net/gh/IAMME543/masonry-grid---bearblog-plugin@main/image-masonry.js" data-owner="OWNER" data-repo="REPO" data-folder="FOLDER" data-columns="3"></script>
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/image-masonry.js" data-owner="OWNER" data-repo="REPO" data-folder="FOLDER" data-columns="3"></script>
 ```
 And ensure to replace OWNER, REPO and FOLDER with your github repositorys details. All images to be displayed should be in the same folder. You can also change the amount of columns in the grid.
 
