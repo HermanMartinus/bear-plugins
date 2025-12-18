@@ -71,7 +71,7 @@
         try {
             const res = await fetch(apiUrl);
             if (!res.ok) {
-                throw new Error(`Response status: ${response.status}`);
+                throw new Error(`Response status: ${res.status}`);
             }
 
             const data = await res.json();
