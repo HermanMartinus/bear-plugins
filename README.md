@@ -56,6 +56,16 @@ Embed:
 
 Set the `data-password` attribute on the script element to the desired password. 
 
+### Image masonry
+
+Add a container to display images from a github repository into a masonry style grid.
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/IAMME543/masonry-grid---bearblog-plugin@main/image-masonry.js" data-owner="OWNER" data-repo="REPO" data-folder="FOLDER" data-columns="3"></script>
+```
+And ensure to replace OWNER, REPO and FOLDER with your github repositorys details. All images to be displayed should be in the same folder. You can also change the amount of columns in the grid.
+
 
 ## Dashboard
 These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under 'Dashboard footer content'.  
