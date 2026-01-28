@@ -38,6 +38,12 @@ Easily open the post or homepage editor using `Ctrl + E`
 
 [Code](/plugins/editor-link.js)
 
+### Copy code button
+
+Adds a button to code blocks to easily copy the content.
+
+[Code](/copy-code.js)
+
 ### Password protect blog
 
 Add a password to a blog in order to view the content.
