@@ -8,7 +8,7 @@ These extensions can be used by copying and pasting the JS into a `<script></scr
 
 **Copying the code is preferred over linking via the GitHub CDN** 
 
-- It gives you more control over the script and can be modified as you see fit
+- It gives you more control over the script which can be modified as you see fit
 - It loads instantly without additional network requests
 - It prevents plugin updates from negatively affecting your blog
 

@@ -8,7 +8,7 @@ Click the **Fork** button at the top of the repository.
 
 ### 2. Create your plugin file
 
-Use a descriptive, lowercase filename with hyphens (e.g., `blog-search-filter.js`) and add your plugin as a new .js file in the `plugins` directory. Ensure that your plugin conforms to the [code standards](#code-standards).
+Use a descriptive, lowercase filename with hyphens (e.g., `blog-search-filter.js`) and add your plugin as a new .js file in the `plugins` directory. Ensure that your plugin conforms to the [code standards](#code-standards). If in doubt, start with the [plugin template](/plugins/hello-world.js).
 
 ### 3. Add documentation
 
