@@ -55,11 +55,9 @@ Expands the post and homepage content editor to the bottom of the screen.
 
 [Code](/plugins/full-height-editor.js)
 
-## Syntax highlighting and formatting controls in editor (WIP)
+## Markdown editor
 
-Use [Overtype](https://overtype.dev) as the editor for syntax highlighting and other formatting control shortcuts.
-
-[Code](/plugins/overtype.js)
+Overtype has been deprecated and it is instead suggested to use the [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René.
 
 ## Post counter
 
