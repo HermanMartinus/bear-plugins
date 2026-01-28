@@ -26,6 +26,12 @@ Search post titles on the blog page with a search input.
 
 [Code](/plugins/search-posts.js)
 
+### Editor shortcut
+
+Easily open the post or homepage editor using `Ctrl + E`
+
+[Code](/plugins/editor-link.js)
+
 ### Password protect blog
 
 Add a password to a blog in order to view the content.
@@ -57,7 +63,7 @@ Expands the post and homepage content editor to the bottom of the screen.
 
 ## Markdown editor
 
-Overtype has been deprecated and it is instead suggested to use the [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René.
+[Overtype](/plugins/overtype.js) has been deprecated and it is instead suggested to use the [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René.
 
 ## Post counter
 
