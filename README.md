@@ -69,6 +69,8 @@ Redirect a custom domain blog with a `www` subdomain to the root domain.
 
 [Code](/plugins/redirect-domain.js)
 
+*Note: This is best added to the `<head>` section instead of the `<footer>` section since it needs to execute immediately. 
+
 
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
