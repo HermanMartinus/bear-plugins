@@ -34,6 +34,17 @@ Add a password to a blog in order to view the content.
 
 [Code](/plugins/password-protect.js)
 
+### Table of contents
+
+Generate a table of contents at the top of a post based on the titles in the post. 
+
+The table of contents plugin has been deprecated and instead should be done in-renderer with the following format:
+
+```
+.. toc:: Table of Contents
+   :max-level: 3
+```
+
 
 ## Dashboard
 These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under `Dashboard footer content` in a `<script></script>` element.  
