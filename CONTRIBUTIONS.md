@@ -14,9 +14,8 @@ Use a descriptive, lowercase filename with hyphens (e.g., `blog-search-filter.js
 
 In the README.md file:
 
-- Describe the use case
+- Describe the plugin briefly
 - Link to the js file
-- Create an embed link
 
 ### 4. Open a pull request and await review
 
@@ -40,7 +39,8 @@ Wrap all scripts in an IIFE with 'use strict'; to avoid conflicts with other plu
 
 ### 2. Scope and isolation
 
-Never pollute the global namespace. Use `const` and `let` instead of `var`.
+- Never pollute the global namespace
+- Use `const` and `let` instead of `var`
 
 ### 3. DOM ready
 
