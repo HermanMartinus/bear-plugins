@@ -42,7 +42,7 @@ Easily open the post or homepage editor using `Ctrl + E`
 
 Adds a button to code blocks to easily copy the content.
 
-[Code](/copy-code.js)
+[Code](/plugins/copy-code.js)
 
 ### Password protect blog
 
@@ -67,7 +67,7 @@ Generate a table of contents at the top of a post based on the titles in the pos
 
 Redirect a custom domain blog with a `www` subdomain to the root domain. 
 
-[Code](/redirect-domain.js)
+[Code](/plugins/redirect-domain.js)
 
 
 ## Dashboard
