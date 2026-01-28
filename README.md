@@ -61,13 +61,13 @@ Generate a table of contents at the top of a post based on the titles in the pos
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
 
-## Full height editor
+### Full height editor
 
 Expands the post and homepage content editor to the bottom of the screen. 
 
 [Code](/plugins/full-height-editor.js)
 
-## Markdown editor
+### Markdown editor
 
 Adds syntax highlighting and shortcuts for markdown features.
 
@@ -75,13 +75,13 @@ Adds syntax highlighting and shortcuts for markdown features.
 
 *Note: Overtype has been deprecated and it is instead suggested to use the [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René.*
 
-## Post counter
+### Post counter
 
 Count and display total posts and pages in the dashboard.
 
 [Code](/plugins/dashboard-post-counter.js)
 
-## Fix New Lines in Posts
+### Fix New Lines in Posts
 Automatically ensures all lines have two spaces at the end, so Markdown will render new lines. Without two spaces at the end, text written on different lines (*without a blank line between them*) will render in your post as being on one line.
 
 [Code](/plugins/newline-fixer.js)
