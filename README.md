@@ -63,6 +63,12 @@ Generate a table of contents at the top of a post based on the titles in the pos
    :max-level: 3
 ```
 
+### Redirect www to root
+
+Redirect a custom domain blog with a `www` subdomain to the root domain. 
+
+[Code](/redirect-domain.js)
+
 
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
