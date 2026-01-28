@@ -4,7 +4,13 @@ The following scripts are extentions for the Bear Blog platform. These are not o
 
 They are separated into **Blog** and **Dashboard** tools to distinguish if they are used on the rendering of the blog, or if they are an extension to the Bear editor and dashboard. 
 
-These extensions can be used by copying and pasting the JS into a `<script></script>` tag in the footer directive of your blog. **Copying the code is preferred over linking via the GitHub CDN** since it gives you more control over the script and can be modified as you see fit, and also loads instantly without additional network requests. It also prevents plugin updates from affecting your blog.
+These extensions can be used by copying and pasting the JS into a `<script></script>` tag in the footer directive of your blog. 
+
+**Copying the code is preferred over linking via the GitHub CDN** 
+
+- It gives you more control over the script and can be modified as you see fit
+- It loads instantly without additional network requests
+- It prevents plugin updates from negatively affecting your blog
 
 ## Blog
 
@@ -36,7 +42,7 @@ Easily open the post or homepage editor using `Ctrl + E`
 
 Add a password to a blog in order to view the content.
 
-*Note: This is circumventable by anyone with a decent understanding of JavaScript and so should only be used to protect non-sensitive information. 
+*Note: This is circumventable by anyone with a decent understanding of JavaScript and so should only be used to protect non-sensitive information.*
 
 [Code](/plugins/password-protect.js)
 
@@ -44,7 +50,7 @@ Add a password to a blog in order to view the content.
 
 Generate a table of contents at the top of a post based on the titles in the post. 
 
-The table of contents plugin has been deprecated and instead should be done in-renderer with the following format:
+*Note: The table of contents plugin has been deprecated and instead should be done in-renderer with the following format:*
 
 ```
 .. toc:: Table of Contents
@@ -53,7 +59,7 @@ The table of contents plugin has been deprecated and instead should be done in-r
 
 
 ## Dashboard
-These scripts can be added to [https://bearblog.dev/dashboard/customise/](https://bearblog.dev/dashboard/customise/) under `Dashboard footer content` in a `<script></script>` element.  
+These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
 
 ## Full height editor
 
@@ -63,7 +69,11 @@ Expands the post and homepage content editor to the bottom of the screen.
 
 ## Markdown editor
 
-[Overtype](/plugins/overtype.js) has been deprecated and it is instead suggested to use the [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René.
+Adds syntax highlighting and shortcuts for markdown features.
+
+[Code](/plugins/overtype.js)
+
+*Note: Overtype has been deprecated and it is instead suggested to use the [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René.*
 
 ## Post counter
 
