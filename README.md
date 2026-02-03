@@ -70,6 +70,12 @@ Redirect a custom domain blog with a `www` subdomain to the root domain.
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
 
+### Version history
+
+Store a version history in browser for easy recovery of older versions of posts
+
+[Code](/plugins/version-history.js)
+
 ### Full height editor
 
 Expands the post and homepage content editor to the bottom of the screen. 
