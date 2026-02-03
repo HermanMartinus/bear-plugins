@@ -54,14 +54,9 @@ Add a password to a blog in order to view the content.
 
 ### Table of contents
 
-Generate a table of contents at the top of a post based on the titles in the post. 
+Generate a table of contents at the top of a post based on the titles in the post. Configuration at top of script.
 
-*Note: The table of contents plugin has been deprecated and instead should be done in-renderer with the following format:*
-
-```
-.. toc:: Table of Contents
-   :max-level: 3
-```
+[Code](/plugins/table-of-contents.js)
 
 ### Redirect www to root
 
