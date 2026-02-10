@@ -66,6 +66,16 @@ Redirect a custom domain blog with a `www` subdomain to the root domain.
 
 *Note: This is best added to the `<head>` section instead of the `<footer>` section since it needs to execute immediately. 
 
+### Image masonry
+
+Add a container to display images from a github repository into a masonry style grid.
+
+Embed:
+```
+<script src="https://cdn.jsdelivr.net/gh/hermanmartinus/bear-plugins/plugins/image-masonry.js" data-owner="OWNER" data-repo="REPO" data-folder="FOLDER" data-columns="3"></script>
+```
+And ensure to replace OWNER, REPO and FOLDER with your github repositorys details. All images to be displayed should be in the same folder. You can also change the amount of columns in the grid.
+
 
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
