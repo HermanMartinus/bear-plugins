@@ -23,7 +23,6 @@ In the README.md file:
 - Push to your fork
 - Open a PR with a description of what your plugin does and how to use it
 
-
 ## Code standards
 
 ### 1. Use strict mode with IIFE
@@ -58,7 +57,8 @@ Check for specific page contexts before running (e.g., `document.body.classList.
 
 ### 6. Compatibility
 
-- Avoid ES6+ features that aren't widely supported (or document browser requirements)
+- Stick to features that are in [Baseline Widely available](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) and are fully supported for greater than 90% of users. You can tell a feature is in Baseline Widely available if there is a green box at the top of its MDN page saying it's in Baseline Widely available.
+- You may use features that are less widely-supported as long as the fallback logic works or you use a [ponyfill](https://ponyfill.com/)
 - Don't override native prototypes
 - Test across major browsers
 
@@ -74,4 +74,3 @@ Add a comment block at the top of the pugin file with the following details:
  Author URI: 
 */
 ```
-
