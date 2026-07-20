@@ -24,6 +24,7 @@
             copyButton.style.top = '8px';
             copyButton.style.right = '6px';
             copyButton.style.background = 'rgba(0, 0, 0, 0)';
+            copyButton.style.color = 'var(--text, inherit)';
             copyButton.style.border = 'none';
             copyButton.style.cursor = 'pointer';
             copyButton.style.display = 'flex';
