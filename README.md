@@ -137,6 +137,12 @@ Replaces the Bear Blog post editor with the Overtype markdown editor, providing 
 
 [Code](/plugins/overtype.js)
 
+### Proofreader
+
+Adds a "Proofreader" button to the post editor that checks your writing locally for typos and grammar issues using [Harper](https://writewithharper.com/).
+
+[Code](/plugins/proofreader.js)
+
 ### Skip navigation
 
 Adds a "Skip to main content" link as the first focusable element on the dashboard, allowing keyboard users and screen readers to bypass navigation and jump directly to the main content area.
