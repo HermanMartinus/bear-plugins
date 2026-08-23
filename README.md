@@ -32,6 +32,12 @@ Search post titles on the blog page with a search input.
 
 [Code](/plugins/search-posts.js)
 
+### Blog archive
+
+Groups blog posts by month with year filtering, search, and pagination.
+
+[Code](/plugins/blog-archive.js)
+
 ### Editor shortcut
 
 Easily open the post or homepage editor using `Ctrl + E`
