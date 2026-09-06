@@ -157,3 +157,11 @@ The [CSS](plugins/ace-editor/styles.css) file can optionally be added to your Da
 ### Markdown power-editor
 
 The [Markdown power-editor](https://fischr.org/markdown-power-editor-for-bear-blog/) by René is custom built for Bear and pretty neat.*
+
+### Word Counter
+
+Displays the number of words in the content of your blog post, updates as you type. By [ReedyBear](https://reedybear.bearblog.dev/bearblog/). 
+
+*Customization: use `span.counter-display {}` in your theme's CSS. Also, the code has a short configurations section at the top.*
+
+[Code](/plugins/dashboard-word-counter.js)
