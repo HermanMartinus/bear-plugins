@@ -165,3 +165,11 @@ Displays the number of words in the content of your blog post, updates as you ty
 *Customization: use `span.counter-display {}` in your theme's CSS. Also, the code has a short configurations section at the top.*
 
 [Code](/plugins/dashboard-word-counter.js)
+
+### Tag Autocomplete
+
+Adds autocomplete when you're typing tags on your edit post page. To select a tag, click on it OR use Tab to select & Enter/Space to accept. To close the suggestion list, press *Escape* or click anywhere on your screen (*outside of the tag list*).
+
+*Configure: Several options at the top of the script can be changed, and are documented there.*
+
+[Code](/plugins/dashboard-tag-autocomplete.js)
