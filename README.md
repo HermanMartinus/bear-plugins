@@ -105,6 +105,12 @@ Sets the `aria-current` tag on links in the nav bar if they match the current pa
 
 [Code](/plugins/aria-current.js)
 
+### Hide current post from embeds
+
+Removes the current post from an embedded post lists, so readers aren't shown a link to the page they're already on.
+
+[Code](/plugins/hide-current-post.js)
+
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
 
