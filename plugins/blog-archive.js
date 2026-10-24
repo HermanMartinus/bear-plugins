@@ -157,8 +157,6 @@
 
     wrapper.appendChild(controls);
 
-    if (tagsBlock) wrapper.appendChild(tagsBlock);
-
     const emptyMsg = document.createElement("p");
     emptyMsg.id = ID_EMPTY;
     hideEl(emptyMsg);
@@ -210,6 +208,8 @@
     pagination.appendChild(info);
     pagination.appendChild(nextBtn);
     wrapper.appendChild(pagination);
+
+    if (tagsBlock) wrapper.appendChild(tagsBlock);
 
     let currentPage = 1;
     let debounceId = null;
