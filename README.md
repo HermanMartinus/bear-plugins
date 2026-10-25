@@ -111,6 +111,12 @@ Removes the current post from an embedded post lists, so readers aren't shown a 
 
 [Code](/plugins/hide-current-post.js)
 
+### Lightbox
+
+Opens post and page images in a full-screen viewer. Photos in the same paragraph form a set with previous/next, keyboard and swipe support. Styles included, using Bear's default color tokens.
+
+[Code](/plugins/lightbox.js)
+
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
 
