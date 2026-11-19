@@ -111,6 +111,30 @@ Removes the current post from an embedded post lists, so readers aren't shown a 
 
 [Code](/plugins/hide-current-post.js)
 
+### Multi-language post
+
+Write one post in several languages and let readers switch between them. Put a marker line before each language, and `{/lang}` after the last one if shared content (like a post embed) follows:
+
+```
+Shared text, always visible.
+
+{lang: en}
+Hello, this is my article.
+
+{lang: vi}
+Xin chào, đây là bài viết của tôi.
+
+{/lang}
+```
+
+Leave a blank line before each marker. A language can appear more than once; all its blocks show together. Use standard codes (`ja`, not `jp`) so browser language matching works.
+
+The plugin shows one language and adds a switcher above it. It picks the start language from `?lang=xx` in the URL, then the reader's last choice, then the browser language. Set button labels in `LABELS` at the top of the script.
+
+*Note: RSS feeds, email newsletters and readers without JavaScript see all languages and the markers.*
+
+[Code](/plugins/multi-language-post.js)
+
 ## Dashboard
 These scripts can be added to [the footer of your dashboard](https://bearblog.dev/dashboard/customise/) in a `<script></script>` element.  
 
